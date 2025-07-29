@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Campus Tree Information System</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+  <header>
+    <h1>🌳 Jecrc Digital Tree Information System</h1>
+  </header>
+
+  <section id="add-tree-section">
+      <h2>Search Tree by ID</h2>
+  <form id="search-form">
+    <input type="text" id="search-id" placeholder="Enter Tree ID" required class="inp"/>
+    <button type="submit" class="btn">Search</button>
+  </form>
+    <h2>Add New Tree</h2>
+    <div class="card">
+      <div style="margin-bottom:10px">
+        <label class="lbl"><b>Mark Tree Location:</b></label>
+        <div id="select-map"></div>
+      </div>
+      <section id="search-section">
+  
+  <div id="search-result"></div>
+</section>
+
+      <form id="add-tree-form" enctype="multipart/form-data">
+        <div class="row">
+          <input type="text" id="tree-id" placeholder="Tree ID" required class="inp"/>
+          <input type="text" id="species" placeholder="Scientific Name" required readonly class="inp"/>
+          <input type="text" id="common-name" placeholder="Common Name" required class="inp"/>
+        </div>
+        <div class="row">
+          <input type="number" step="any" id="lat" placeholder="Latitude" required readonly class="inp"/>
+          <input type="number" step="any" id="lng" placeholder="Longitude" required readonly class="inp"/>
+        </div>
+        <div class="row">
+          <label class="lbl">Planting Date</label>
+          <input type="date" id="plantedDate" required class="inp"/>
+          <label class="lbl">Last Inspection Date</label>
+          <input type="date" id="lastInspection" required class="inp"/>
+        </div>
+        <div class="row">
+          <input type="text" id="health" placeholder="Health Status" required class="inp"/>
+          <input type="text" id="adoptedBy" placeholder="Adopted By (Name)" class="inp"/>
+        </div>
+        <textarea id="observation" placeholder="Inspection Observations" class="inp" rows="2"></textarea>
+        <label class="lbl">Tree Photos:
+          <input type="file" id="photos" accept="image/*" multiple>
+        </label>
+        <div id="preview"></div>
+        <button type="submit" class="btn">Add my green buddy</button>
+      </form>
+      <button onclick="showTrees()" class="btn sec-btn">Show Added Trees</button>
+    </div>
+  </section>
+
+  <section id="trees-list-section" style="display:none;">
+    <h2>All Trees</h2>
+    <button onclick="hideTrees()" class="btn sec-btn">Hide List</button>
+    <div class="tablewrap">
+      <table id="tree-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Scientific Name</th>
+            <th>Common Name</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Planting Date</th>
+            <th>Age</th>
+            <th>Last Inspection</th>
+            <th>Observation</th>
+            <th>Health</th>
+            <th>Adopted By</th>
+            <th>Photos</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p>🌱 Developed by Team Van-rakshak</P>
+  </footer>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
